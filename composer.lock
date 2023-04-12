@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "faf2f1c5dd36510f52aa5e1a854fe6b1",
+    "content-hash": "aef76e06e53e39d0505b7135c8eceebd",
     "packages": [
         {
             "name": "minicli/minicli",
@@ -56,6 +56,50 @@
                 }
             ],
             "time": "2022-09-23T09:04:22+00:00"
+        },
+        {
+            "name": "minicli/stencil",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/minicli/stencil.git",
+                "reference": "a328319f68229007b65d286ae2bd77cf2b7b9dca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/minicli/stencil/zipball/a328319f68229007b65d286ae2bd77cf2b7b9dca",
+                "reference": "a328319f68229007b65d286ae2bd77cf2b7b9dca",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.5",
+                "pestphp/pest": "^1.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Minicli\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Dummy template generator",
+            "homepage": "https://github.com/minicli/stencil",
+            "keywords": [
+                "minicli",
+                "template"
+            ],
+            "support": {
+                "issues": "https://github.com/minicli/stencil/issues",
+                "source": "https://github.com/minicli/stencil/tree/0.1.1"
+            },
+            "time": "2022-06-21T08:51:47+00:00"
         }
     ],
     "packages-dev": [],

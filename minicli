@@ -14,10 +14,14 @@ $app = new App([
     'app_path' => [
         __DIR__ . '/Command'
     ],
+    'stencil_dir' => __DIR__ . '/../../librarian/app/Resources/stencil',
+    'stencil_locations' => [
+        'post' => __DIR__ . '/../../librarian/app/Resources/data/_p'
+    ],
     'debug' => true
 ]);
 
-$app->setSignature('./minicli help');
+$app->setSignature('./minicli create');
 
 try {
     $app->runCommand($argv);
