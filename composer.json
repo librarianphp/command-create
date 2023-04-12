@@ -1,0 +1,16 @@
+{
+    "name": "librarianphp/command-help",
+    "type": "library",
+    "description": "Librarian's built-in help command",
+    "license": "MIT",
+    "homepage": "https://github.com/librarianphp/command-demo",
+    "keywords": ["cli","command-line", "markdown"],
+    "autoload": {
+        "psr-4": {
+            "Librarian\\": "Command/"
+        }
+    },
+    "require": {
+        "minicli/minicli": "^3.0"
+    }
+}
