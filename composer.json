@@ -7,7 +7,7 @@
     "keywords": ["cli","command-line", "markdown"],
     "autoload": {
         "psr-4": {
-            "Librarian\\": "Command/"
+            "librarianphp\\": "Command/"
         }
     },
     "require": {
