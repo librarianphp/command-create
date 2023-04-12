@@ -1,6 +1,6 @@
 <?php
 
-namespace Librarian\Create;
+namespace librarianphp\Create;
 
 use Minicli\Stencil;
 use Minicli\Command\CommandController;
