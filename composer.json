@@ -13,5 +13,18 @@
     "require": {
         "minicli/minicli": "^3.0",
         "minicli/stencil": "^0.1.1"
+    },
+    "require-dev": {
+        "pestphp/pest": "^2.4",
+        "friendsofphp/php-cs-fixer": "^3.16"
+    },
+    "scripts": {
+        "test" : ["pest"],
+        "csfix": ["php-cs-fixer fix"]
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     }
 }
