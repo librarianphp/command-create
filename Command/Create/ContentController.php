@@ -2,21 +2,25 @@
 
 namespace librarianphp\Create;
 
+use Minicli\FileNotFoundException;
 use Minicli\Stencil;
 use Minicli\Command\CommandController;
 use Minicli\Input;
 
 class ContentController extends CommandController
 {
+    /**
+     * @throws FileNotFoundException
+     */
     public function handle(): void
     {
         if (!$this->getApp()->config->has('stencil_dir')) {
-            $this->getApp()->getPrinter()->error("You must define a stencil_dir config option.");
+            $this->error("You must define a stencil_dir config option.");
             return;
         }
 
         if (!$this->getApp()->config->has('stencil_locations')) {
-            $this->getApp()->getPrinter()->error("You must define a stencil_locations array config option.");
+            $this->error("You must define a stencil_locations array config option.");
             return;
         }
 
@@ -30,10 +34,10 @@ class ContentController extends CommandController
 
         $input = new Input(' ');
 
-        $this->getPrinter()->info("Content Title: ");
+        $this->info("Content Title: ");
         $title = $input->read();
 
-        $this->getPrinter()->info("Content Description: ");
+        $this->info("Content Description: ");
         $description = $input->read();
 
         $content = $stencil->applyTemplate($template_name, [
@@ -44,7 +48,7 @@ class ContentController extends CommandController
         $save_locations = $this->getApp()->config->stencil_locations;
 
         if (!array_key_exists($template_name, $save_locations)) {
-            $this->getPrinter()->error("Save location not found for template $template_name");
+            $this->error("Save location not found for template $template_name");
             return;
         }
 
@@ -53,7 +57,7 @@ class ContentController extends CommandController
         $file = fopen($path . '/' . $save_name, 'a+');
 
         fwrite($file, $content);
-        $this->getPrinter()->info("Content generated at " . $path . '/' . $save_name);
+        $this->info("Content generated at " . $path . '/' . $save_name);
     }
 
     public function slugify($title)
