@@ -1,0 +1,15 @@
+<?php
+
+declare(strict_types=1);
+
+{{command_namespace}};
+
+use Minicli\Command\CommandController;
+
+class {{command_class}} extends CommandController
+{
+    public function handle(): void
+    {
+        $this->display('Hello from {{command_name}}!');
+    }
+}
