@@ -20,8 +20,8 @@
     "minicli/stencil": "^0.1.1"
   },
   "require-dev": {
-    "pestphp/pest": "^2.4",
-    "friendsofphp/php-cs-fixer": "^3.16",
+    "pestphp/pest": "^2.6",
+    "friendsofphp/php-cs-fixer": "^3.17",
     "laravel/pint": "^1.10"
   },
   "scripts": {
