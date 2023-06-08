@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace librarianphp\Create;
 
-use Minicli\FileNotFoundException;
-use Minicli\Stencil;
 use Minicli\Command\CommandController;
+use Minicli\FileNotFoundException;
 use Minicli\Input;
+use Minicli\Stencil;
 
 class ContentController extends CommandController
 {
@@ -14,19 +16,21 @@ class ContentController extends CommandController
      */
     public function handle(): void
     {
-        if (!$this->getApp()->config->has('stencil_dir')) {
-            $this->error("You must define a stencil_dir config option.");
+        if (! $this->getApp()->config->has('stencil_dir')) {
+            $this->error('You must define a stencil_dir config option.');
+
             return;
         }
 
-        if (!$this->getApp()->config->has('stencil_locations')) {
-            $this->error("You must define a stencil_locations array config option.");
+        if (! $this->getApp()->config->has('stencil_locations')) {
+            $this->error('You must define a stencil_locations array config option.');
+
             return;
         }
 
         $args = $this->getArgs();
         $template_name = $args[3] ?? null;
-        if (!$template_name) {
+        if (! $template_name) {
             $template_name = 'post';
         }
 
@@ -34,21 +38,22 @@ class ContentController extends CommandController
 
         $input = new Input(' ');
 
-        $this->info("Content Title: ");
+        $this->info('Content Title: ');
         $title = $input->read();
 
-        $this->info("Content Description: ");
+        $this->info('Content Description: ');
         $description = $input->read();
 
         $content = $stencil->applyTemplate($template_name, [
             'title' => $title,
-            'description' => $description
+            'description' => $description,
         ]);
 
         $save_locations = $this->getApp()->config->stencil_locations;
 
-        if (!array_key_exists($template_name, $save_locations)) {
-            $this->error("Save location not found for template $template_name");
+        if (! array_key_exists($template_name, $save_locations)) {
+            $this->error("Save location not found for template {$template_name}");
+
             return;
         }
 
@@ -57,7 +62,7 @@ class ContentController extends CommandController
         $file = fopen($path . '/' . $save_name, 'a+');
 
         fwrite($file, $content);
-        $this->info("Content generated at " . $path . '/' . $save_name);
+        $this->info('Content generated at ' . $path . '/' . $save_name);
     }
 
     public function slugify($title)
