@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
 |--------------------------------------------------------------------------
 | Test Case
@@ -26,9 +28,7 @@
 
 use Minicli\App;
 
-expect()->extend('toBeOne', function () {
-    return $this->toBe(1);
-});
+expect()->extend('toBeOne', fn () => $this->toBe(1));
 
 /*
 |--------------------------------------------------------------------------
@@ -45,8 +45,8 @@ function getMinicli()
 {
     return new App([
         'app_path' => [
-            __DIR__ . '/../Command'
+            __DIR__ . '/../Command',
         ],
-        'debug' => true
+        'debug' => true,
     ]);
 }
